@@ -1,6 +1,9 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
 
+use App\Controllers\Home;
+use App\Controllers\Profile;
+
 $configuration = [
     'settings' => [
         'displayErrorDetails' => true,
@@ -25,7 +28,8 @@ $container['view'] = function ($container) {
 };
 
 $app->get('/', function ($request, $response, $args) {
-    return $this->view->render($response, 'home.html');
+    (new Home($request, $response, $this->view))->index();
+    // return $this->view->render($response, 'home.html');
 })->setName('home');
 
 $app->get('/contato', function ($request, $response, $args) {
@@ -33,8 +37,8 @@ $app->get('/contato', function ($request, $response, $args) {
 })->setName('contato');
 
 $app->get('/teste/{name}', function ($request, $response, $args) {
-    return $this->view->render($response, 'profile.html');
+    (new Profile($request, $response, $this->view))->index();
+    // return $this->view->render($response, 'profile.html', $args);
 })->setName('profile');
 
-// Run app
 $app->run();
