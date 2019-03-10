@@ -22,7 +22,12 @@
   },
   "homepage": "https://github.com/maikenegreiros/boilerplate#readme",
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "popper.js": "^1.14.7",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
+  },
+  "devDependencies": {
+    "jquery": "^3.3.1"
   }
 }
