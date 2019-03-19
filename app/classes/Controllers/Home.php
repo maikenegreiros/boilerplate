@@ -1,18 +1,13 @@
 <?php
 namespace App\Controllers;
 
-class Home {
-    private $request;
-    private $response;
-    private $view;
+class Home extends Controller {
 
-    public function __construct($request, $response, $view) {
-        $this->request = $request;
-        $this->response = $response;
-        $this->view = $view;
+    public function __construct($request, $response) {
+        parent::__construct($request, $response);
     }
 
     public function index() {
-        $this->view->render($this->response, 'home.html');
+        $this->response->getBody()->write($this->view->make('home'));
     }
 }

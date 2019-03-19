@@ -7,6 +7,6 @@
     <script src="../dist/js/cover-bundle.js"></script>
 </head>
 <body>
-    {% block content %}{% endblock %}
+    @yield('content')
 </body>
 </html>
